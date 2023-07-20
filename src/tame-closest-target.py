@@ -1,4 +1,4 @@
-from Scripts.src.utils.utils import can_execute_wtg
+from Scripts.src.utils.utils import can_exec_wtg
 
 
 def findMobile():
@@ -15,7 +15,7 @@ def findMobile():
 
 
 Journal.Clear()
-while (not Player.IsGhost) and can_execute_wtg("tame-closest-target.py"):
+while can_exec_wtg("tame-closest-target.py"):
     if Journal.SearchByType("You must wait a few moments to use another skill.", "System"):
         break
     Player.UseSkill("Animal Taming")

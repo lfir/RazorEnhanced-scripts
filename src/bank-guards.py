@@ -1,2 +1,1 @@
-Player.ChatSay(690, 'bank guards')
-
+Player.ChatSay(690, "bank guards")

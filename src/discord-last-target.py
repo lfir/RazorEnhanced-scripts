@@ -1,7 +1,7 @@
-from Scripts.src.utils.utils import can_execute_wtg
+from Scripts.src.utils.utils import can_exec_wtg
 
 
-while (not Player.IsGhost) and can_execute_wtg("discord-last-target.py"):
+while can_exec_wtg("discord-last-target.py"):
     Player.UseSkill("Discordance")
     Target.WaitForTarget(2000, True)
     Target.Last()
