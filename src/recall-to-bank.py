@@ -5,5 +5,5 @@ from Scripts.src.utils.utils import can_exec_wtg
     
 if can_exec_wtg("recall-to-bank.py"):
     Spells.CastMagery("Recall")
-    Target.WaitForTarget(2000, True)
+    Target.WaitForTarget(2000, False)
     Target.TargetExecute(0x408CAD30)

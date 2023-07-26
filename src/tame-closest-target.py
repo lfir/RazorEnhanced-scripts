@@ -19,6 +19,6 @@ while can_exec_wtg("tame-closest-target.py"):
     if Journal.SearchByType("You must wait a few moments to use another skill.", "System"):
         break
     Player.UseSkill("Animal Taming")
-    Target.WaitForTarget(2000, True)
+    Target.WaitForTarget(2000, False)
     Target.TargetExecute(Mobiles.Select(findMobile(), "Nearest"))
     Misc.Pause(100)
