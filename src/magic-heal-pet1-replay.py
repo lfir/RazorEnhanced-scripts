@@ -1,16 +1,15 @@
-from Scripts.src.utils.utils import can_exec_wtg
-
-
 shadowWyrm = 0x1DB18
-healPet = Mobiles.FindBySerial(shadowWyrm)
+naja = 0x0002FF2C
+healPet = Mobiles.FindBySerial(naja)
 
-while (healPet.Hits < healPet.HitsMax or healPet.Poisoned) and can_exec_wtg("magic-heal-pet1-replay.py"):
+while (healPet.Hits < healPet.HitsMax or healPet.Poisoned):
+    if Target.HasTarget: Target.Cancel()
     if healPet.Poisoned:
         Spells.CastMagery("Arch Cure")
-        Target.WaitForTarget(2000, False)
+        Target.WaitForTarget(2000, True)
         Target.TargetExecute(healPet)
     else:
         Spells.CastMagery("Greater Heal")
-        Target.WaitForTarget(2000, False)
+        Target.WaitForTarget(2000, True)
         Target.TargetExecute(healPet)
     Misc.Pause(100)

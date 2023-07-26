@@ -1,6 +1,3 @@
-from Scripts.src.utils.utils import can_exec_wtg
-
-
 def findMobile():
     mobileFilter = Mobiles.Filter()
     mobileFilter.RangeMax = 2
@@ -15,10 +12,11 @@ def findMobile():
 
 
 Journal.Clear()
-while can_exec_wtg("tame-closest-target.py"):
+while not Player.IsGhost:
     if Journal.SearchByType("You must wait a few moments to use another skill.", "System"):
         break
+    if Target.HasTarget: Target.Cancel()
     Player.UseSkill("Animal Taming")
-    Target.WaitForTarget(2000, False)
+    Target.WaitForTarget(2000, True)
     Target.TargetExecute(Mobiles.Select(findMobile(), "Nearest"))
     Misc.Pause(100)
