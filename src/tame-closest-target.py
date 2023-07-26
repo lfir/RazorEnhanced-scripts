@@ -1,3 +1,5 @@
+from AutoComplete import *
+
 def findMobile():
     mobileFilter = Mobiles.Filter()
     mobileFilter.RangeMax = 2

@@ -1,4 +1,6 @@
-while (Player.Hits < Player.HitsMax or Player.Poisoned):
+from AutoComplete import *
+
+while (Player.Hits < Player.HitsMax) or Player.Poisoned:
     if Target.HasTarget: Target.Cancel()
     if Player.Poisoned:
         Spells.CastMagery("Arch Cure")
