@@ -1,6 +1,4 @@
-from AutoComplete import *
+from Scripts.src.utils import *
 
-if Target.HasTarget: Target.Cancel()
-Spells.CastMagery("Recall")
-Target.WaitForTarget(2000, True)
-Target.TargetExecute(0x408CAD30)
+runebook_serial = 0x408CAD30
+cast("Recall", True, runebook_serial)
