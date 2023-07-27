@@ -1,6 +1,4 @@
-from AutoComplete import *
+from Scripts.src.utils import *
 
-if Target.HasTarget: Target.Cancel()
-Spells.CastChivalry("Sacred Journey")
-Target.WaitForTarget(2000, True)
-Target.TargetExecute(0x400D0A9B)  # Runebook
+runebook_serial = 0x400D0A9B
+cast("Sacred Journey", True, runebook_serial)

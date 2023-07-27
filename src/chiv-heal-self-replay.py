@@ -1,13 +1,9 @@
-from AutoComplete import *
+from Scripts.src.utils import *
 
+fcr_delay = 1600
 while (Player.Hits < Player.HitsMax) or Player.Poisoned:
-    if Target.HasTarget: Target.Cancel()
     if Player.Poisoned:
-        Spells.CastChivalry("Cleanse by Fire")
-        Target.WaitForTarget(2000, True)
-        Target.Self()
+        cast("Cleanse by Fire", True)
     else:
-        Spells.CastChivalry("Close Wounds")
-        Target.WaitForTarget(2000, True)
-        Target.Self()
-    Misc.Pause(1600)
+        cast("Close Wounds", True)
+    Misc.Pause(fcr_delay)

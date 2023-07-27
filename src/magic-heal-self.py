@@ -1,12 +1,7 @@
-from AutoComplete import *
+from Scripts.src.utils import *
 
 if (Player.Hits < Player.HitsMax) or Player.Poisoned:
-    if Target.HasTarget: Target.Cancel()
     if Player.Poisoned:
-        Spells.CastMagery("Arch Cure")
-        Target.WaitForTarget(2000, True)
-        Target.Self()
+        cast("Arch Cure", True)
     else:
-        Spells.CastMagery("Greater Heal")
-        Target.WaitForTarget(2000, True)
-        Target.Self()
+        cast("Greater Heal", True)

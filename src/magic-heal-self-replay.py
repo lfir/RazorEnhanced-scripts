@@ -1,13 +1,9 @@
-from AutoComplete import *
+from Scripts.src.utils import *
 
+fcr_delay = 100
 while (Player.Hits < Player.HitsMax) or Player.Poisoned:
-    if Target.HasTarget: Target.Cancel()
     if Player.Poisoned:
-        Spells.CastMagery("Arch Cure")
-        Target.WaitForTarget(2000, True)
-        Target.Self()
+        cast("Arch Cure", True)
     else:
-        Spells.CastMagery("Greater Heal")
-        Target.WaitForTarget(2000, True)
-        Target.Self()
-    Misc.Pause(100)
+        cast("Greater Heal", True)
+    Misc.Pause(fcr_delay)

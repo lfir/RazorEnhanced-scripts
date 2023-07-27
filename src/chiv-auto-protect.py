@@ -1,4 +1,3 @@
-from AutoComplete import *
 from Scripts.src.utils import *
 
 curses = {"Bload Oath", "Clumsy", "Corpse Skin", "Curse", "Evil Omen", "Feeble Mind", "Mind Rot", "Mortal Strike",
@@ -15,10 +14,11 @@ while not Player.IsGhost:
         Misc.Pause(fcr_delay)
     if any(map(Player.BuffsExist, curses)) and (Player.Mana >= 20):
         cast("Remove Curse", True)
+        Misc.Pause(fcr_delay)
     if (not Player.BuffsExist("Consecrate Weapon")) and (Player.Mana >= 10):
-        Spells.CastChivalry("Consecrate Weapon", False)
+        cast("Consecrate Weapon", False)
         Misc.Pause(fcr_delay)
     if (not Player.BuffsExist("Divine Fury")) and (Player.Mana >= 10):
-        Spells.CastChivalry("Divine Fury", False)
+        cast("Divine Fury", False)
         Misc.Pause(fcr_delay)
     Misc.Pause(500)
