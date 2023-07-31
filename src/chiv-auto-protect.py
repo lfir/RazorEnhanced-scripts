@@ -14,7 +14,7 @@ while not Player.IsGhost:
     if player_cursed():
         chiv_rmcurse(currchar, playermob)
     if not Player.BuffsExist("Consecrate Weapon"):
-        cast("Consecrate Weapon", currchar, False)
+        cast("Consecrate Weapon", currchar)
     if not Player.BuffsExist("Divine Fury"):
-        cast("Divine Fury", currchar, False)
+        cast("Divine Fury", currchar)
     Misc.Pause(500)

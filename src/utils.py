@@ -24,8 +24,9 @@ curses = ["Bload Oath (curse)", "Clumsy", "Corpse Skin", "Curse", "Evil Omen", "
           "Mortal Strike", "Paralyze", "Strangle", "Weaken"]
 
 
-def cast(spell, caster, usetarg, target=None):
+def cast(spell, caster, target=None):
     if Player.Mana >= spells.get(spell):
+        usetarg = target is not None
         if usetarg and Target.HasTarget():
             Target.Cancel()
         Spells.Cast(spell)
@@ -41,16 +42,16 @@ def is_hurt(target, hpdiff=0):
 
 def chiv_heal(caster, target):
     if target.Poisoned:
-        cast("Cleanse by Fire", caster, True, target)
+        cast("Cleanse by Fire", caster, target)
     else:
-        cast("Close Wounds", caster, True, target)
+        cast("Close Wounds", caster, target)
 
 
 def mag_heal(caster, target):
     if target.Poisoned:
-        cast("Arch Cure", caster, True, target)
+        cast("Arch Cure", caster, target)
     else:
-        cast("Greater Heal", caster, True, target)
+        cast("Greater Heal", caster, target)
 
 
 def player_cursed():
@@ -58,4 +59,4 @@ def player_cursed():
 
 
 def chiv_rmcurse(caster, target):
-    cast("Remove Curse", caster, True, target)
+    cast("Remove Curse", caster, target)
