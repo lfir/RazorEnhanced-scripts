@@ -1,4 +1,5 @@
 from Scripts.src.utils import *
 
+currchar = chr0
 if not Player.Poisoned:
-    cast("Invisibility", True)
+    cast("Invisibility", currchar, True, playermob)

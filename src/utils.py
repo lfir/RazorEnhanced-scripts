@@ -1,8 +1,8 @@
 from AutoComplete import *
 
 # Variables related to different characters
-chr0 = {'fcrdelay': 100}
-chr1 = {'fcrdelay': 1600}
+chr0 = {"fcrdelay": 100}
+chr1 = {"fcrdelay": 1600}
 playermob = Mobiles.FindBySerial(Player.Serial)
 # Spell mana costs
 spells = {
@@ -10,6 +10,8 @@ spells = {
     "Arch Cure": 11,
     "Greater Heal": 11,
     "Recall": 11,
+    # Sixth Circle
+    "Invisibility": 20,
     # Chivalry
     "Close Wounds": 10,
     "Cleanse by Fire": 10,
@@ -42,6 +44,13 @@ def chiv_heal(caster, target):
         cast("Cleanse by Fire", caster, True, target)
     else:
         cast("Close Wounds", caster, True, target)
+
+
+def mag_heal(caster, target):
+    if target.Poisoned:
+        cast("Arch Cure", caster, True, target)
+    else:
+        cast("Greater Heal", caster, True, target)
 
 
 def player_cursed():
