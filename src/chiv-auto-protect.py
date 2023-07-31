@@ -3,7 +3,7 @@ from Scripts.src.utils import *
 curses = {"Bload Oath (curse)", "Clumsy", "Corpse Skin", "Curse", "Evil Omen", "Feeble Mind", "Mind Rot", "Mortal Strike",
                "Paralyze", "Strangle", "Weaken"}
 fcr_delay = 1600
-hpdiff = 20
+hpdiff = 30
 
 while not Player.IsGhost:
     if Player.Poisoned and (Player.Mana >= 10):
@@ -13,6 +13,10 @@ while not Player.IsGhost:
     if (Player.Hits <= (Player.HitsMax - hpdiff)) and (Player.Mana >= 10):
         cast("Close Wounds", True)
         Misc.Pause(fcr_delay)
+    if Player.BuffsExist("Bload Oath (curse)"):
+        Player.HeadMessage(40, "Blood Oath! RUN!")
+        Player.SetWarMode(False)
+        Misc.Pause(100)
     if any(map(Player.BuffsExist, curses)) and (Player.Mana >= 20):
         cast("Remove Curse", True)
         Misc.Pause(fcr_delay)
