@@ -1,29 +1,20 @@
 from Scripts.src.utils import *
 
-curses = {"Bload Oath (curse)", "Clumsy", "Corpse Skin", "Curse", "Evil Omen", "Feeble Mind", "Mind Rot", "Mortal Strike",
-               "Paralyze", "Strangle", "Weaken"}
-fcr_delay = 1600
-hpdiff = 30
+currchar = chr1
 
 while not Player.IsGhost:
-    if Player.Poisoned and (Player.Mana >= 10):
-        cast("Cleanse by Fire", True)
-        Misc.Pause(fcr_delay)
-    if Player.Poisoned: continue
-    if (Player.Hits <= (Player.HitsMax - hpdiff)) and (Player.Mana >= 10):
-        cast("Close Wounds", True)
-        Misc.Pause(fcr_delay)
-    if Player.BuffsExist("Bload Oath (curse)"):
+    if is_hurt(Player, 30):
+        chiv_heal(currchar, playermob)
+    if Player.BuffsExist(curses[0]):
         Player.HeadMessage(40, "Blood Oath! RUN!")
         Player.SetWarMode(False)
         Misc.Pause(100)
-    if any(map(Player.BuffsExist, curses)) and (Player.Mana >= 20):
-        cast("Remove Curse", True)
-        Misc.Pause(fcr_delay)
-    if (not Player.BuffsExist("Consecrate Weapon")) and (Player.Mana >= 10):
-        cast("Consecrate Weapon", False)
-        Misc.Pause(fcr_delay)
-    if (not Player.BuffsExist("Divine Fury")) and (Player.Mana >= 10):
-        cast("Divine Fury", False)
-        Misc.Pause(fcr_delay)
+    if Player.Poisoned:
+        continue
+    if player_cursed():
+        chiv_rmcurse(currchar, playermob)
+    if not Player.BuffsExist("Consecrate Weapon"):
+        cast("Consecrate Weapon", currchar, False)
+    if not Player.BuffsExist("Divine Fury"):
+        cast("Divine Fury", currchar, False)
     Misc.Pause(500)

@@ -1,9 +1,9 @@
 from Scripts.src.utils import *
 
-fcr_delay = 1600
-while (Player.Hits < Player.HitsMax) or Player.Poisoned:
-    if Player.Poisoned:
-        cast("Cleanse by Fire", True)
-    else:
-        cast("Close Wounds", True)
-    Misc.Pause(fcr_delay)
+currchar = chr1
+params = (currchar, playermob)
+
+while is_hurt(Player):
+    chiv_heal(*params)
+if player_cursed():
+    chiv_rmcurse(*params)

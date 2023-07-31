@@ -1,4 +1,5 @@
 from Scripts.src.utils import *
 
+currchar = chr1
 runebook_serial = 0x400D0A9B
-cast("Sacred Journey", True, runebook_serial)
+cast("Sacred Journey", currchar, True, runebook_serial)
