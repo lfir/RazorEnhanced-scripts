@@ -12,7 +12,7 @@ while not Player.IsGhost:
     if Player.Poisoned:
         continue
     if player_cursed():
-        chiv_rmcurse(currchar, playermob)
+        cast("Remove Curse", currchar, playermob)
     if not Player.BuffsExist("Consecrate Weapon"):
         cast("Consecrate Weapon", currchar)
     if not Player.BuffsExist("Divine Fury"):
