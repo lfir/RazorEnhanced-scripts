@@ -56,7 +56,3 @@ def mag_heal(caster, target):
 
 def player_cursed():
     return any(map(Player.BuffsExist, curses))
-
-
-def chiv_rmcurse(caster, target):
-    cast("Remove Curse", caster, target)
