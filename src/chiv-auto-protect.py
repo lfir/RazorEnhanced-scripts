@@ -8,7 +8,6 @@ while not Player.IsGhost:
     if Player.BuffsExist(curses[0]):
         Player.HeadMessage(40, "Blood Oath! RUN!")
         Player.SetWarMode(False)
-        Misc.Pause(100)
     if Player.Poisoned:
         continue
     if player_cursed():
