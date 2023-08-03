@@ -58,7 +58,7 @@ def player_cursed():
 
 
 def is_hurt(target, hpdiff=0):
-    return (target.Hits < (target.HitsMax - hpdiff)) or target.Poisoned
+    return (target.Hits < (target.HitsMax - hpdiff)) or (target.Poisoned and not Player.BuffsExist("Vampiric Embrace"))
 
 
 def find_mobiles(notorieties, maxrange):
