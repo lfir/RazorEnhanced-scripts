@@ -1,15 +1,7 @@
 from Scripts.src.utils import *
 
-mobs = Mobiles.Filter()
-mobs.Enabled = True
-mobs.RangeMax = 5
-mobs.Notorieties.Add(3)  # gray, neutral
-mobs.Notorieties.Add(4)  # gray, criminal
-mobs.Notorieties.Add(5)  # orange
-mobs.Notorieties.Add(6)  # red
-
 while not Player.IsGhost:
-    enemies = Mobiles.ApplyFilter(mobs)
+    enemies = find_mobiles(range(3, 7), 5)
     Mobiles.Select(enemies, "Nearest")
     for enemy in enemies:
         target = Mobiles.FindBySerial(enemy.Serial)
