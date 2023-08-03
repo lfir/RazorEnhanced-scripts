@@ -28,25 +28,15 @@ naja = 0x0002FF2C
 pets = [shadow_wyrm, naja]
 
 
-def get_activepet():
-    # Only one should be active at a time
-    return next(filter(lambda p: p, map(Mobiles.FindBySerial, pets)))
-
-
 def cast(spell, caster, target=None):
     if Player.Mana >= spells.get(spell):
-        usetarg = target is not None
-        if usetarg and Target.HasTarget():
+        if target and Target.HasTarget():
             Target.Cancel()
         Spells.Cast(spell)
-        if usetarg:
+        if target:
             Target.WaitForTarget(2000, True)
             Target.TargetExecute(target)
         Misc.Pause(caster.get('fcrdelay'))
-
-
-def is_hurt(target, hpdiff=0):
-    return (target.Hits < (target.HitsMax - hpdiff)) or target.Poisoned
 
 
 def chiv_heal(caster, target):
@@ -67,6 +57,10 @@ def player_cursed():
     return any(map(Player.BuffsExist, curses))
 
 
+def is_hurt(target, hpdiff=0):
+    return (target.Hits < (target.HitsMax - hpdiff)) or target.Poisoned
+
+
 def find_mobiles(notorieties, maxrange):
     # 1: blue; 2: green; 3: gray, neutral
     # 4: gray, criminal; 5: orange; 6: red
@@ -77,3 +71,8 @@ def find_mobiles(notorieties, maxrange):
     mobilefilter.CheckIgnoreObject = True
     mobilefilter.CheckLineOfSight = True
     return Mobiles.ApplyFilter(mobilefilter)
+
+
+def get_activepet():
+    # Only one should be active at a time
+    return next(filter(lambda p: p, map(Mobiles.FindBySerial, pets)))
