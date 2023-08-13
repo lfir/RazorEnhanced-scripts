@@ -20,12 +20,13 @@ spells = {
     "Remove Curse": 20,
     "Sacred Journey": 20
 }
-curses = ["Bload Oath (curse)", "Clumsy", "Corpse Skin", "Curse", "Evil Omen", "Feeble Mind", "Mind Rot",
-          "Mortal Strike", "Paralyze", "Strangle", "Weaken"]
+curses = ["Bload Oath (curse)", "Corpse Skin", "Curse", "Evil Omen", "Mind Rot",
+          "Mortal Strike", "Paralyze"]
 # Pet serial numbers
 shadow_wyrm = 0x1DB18
 naja = 0x0002FF2C
-pets = [shadow_wyrm, naja]
+toothless = 0x0003A06D
+pets = [shadow_wyrm, naja, toothless]
 
 
 def cast(spell, caster, target=None):
