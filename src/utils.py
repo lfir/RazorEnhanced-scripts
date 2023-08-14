@@ -1,8 +1,8 @@
 from AutoComplete import *
 
 # Variables related to different characters
-chr0 = {"fcrdelay": 0}
-chr1 = {"fcrdelay": 1600}
+chr0 = {"fcrdelay": 0}  # 6 FCR
+chr1 = {"fcrdelay": 2100, "usesdf": False}  # 0 FCR
 playermob = Mobiles.FindBySerial(Player.Serial)
 # Spell mana costs
 spells = {
@@ -37,7 +37,7 @@ def cast(spell, caster, target=None):
         if target:
             Target.WaitForTarget(2000, True)
             Target.TargetExecute(target)
-        Misc.Pause(caster.get('fcrdelay'))
+        Misc.Pause(caster.get("fcrdelay"))
 
 
 def chiv_heal(caster, target):

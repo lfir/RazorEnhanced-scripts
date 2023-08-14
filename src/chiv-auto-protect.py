@@ -14,6 +14,6 @@ while not Player.IsGhost:
         cast("Remove Curse", currchar, playermob)
     if not Player.BuffsExist("Consecrate Weapon"):
         cast("Consecrate Weapon", currchar)
-    if not Player.BuffsExist("Divine Fury"):
+    if currchar.get("usesdf") and (not Player.BuffsExist("Divine Fury")):
         cast("Divine Fury", currchar)
     Misc.Pause(500)
