@@ -21,7 +21,7 @@ spells = {
     "Sacred Journey": 20
 }
 curses = ["Bload Oath (curse)", "Corpse Skin", "Curse", "Evil Omen", "Mind Rot",
-          "Mortal Strike", "Paralyze"]
+          "Mortal Strike", "Paralyze", "Clumsy", "Feeble Mind", "Strangle", "Weaken"]
 # Pet serial numbers
 shadow_wyrm = 0x1DB18
 naja = 0x0002FF2C
