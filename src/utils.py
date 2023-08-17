@@ -2,7 +2,7 @@ from AutoComplete import *
 
 # Variables related to different characters
 chr0 = {"fcrdelay": 0}  # 6 FCR
-chr1 = {"fcrdelay": 2100, "usesdf": False}  # 0 FCR
+chr1 = {"fcrdelay": 1600, "usesdf": False}  # 2 FCR
 playermob = Mobiles.FindBySerial(Player.Serial)
 # Spell mana costs
 spells = {
