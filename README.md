@@ -7,3 +7,6 @@ Personal UO RazorEnhanced scripts I'm using on [UOAlive](https://uoalive.com). W
 - Script cwd is C:\ClassicUO\ClassicUO (Wine + ClassicUO root dir in C:\ and RE as plugin).
 
 - <RE_Root>/Config/AutoComplete.py contains mocks of the built-in classes and methods injected at runtime.
+
+#### Demo
+https://www.youtube.com/watch?v=s5KfpfYqFUo
